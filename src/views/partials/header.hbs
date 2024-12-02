@@ -1,19 +1,15 @@
-<header class='is-flex px-4 is-justify-content-space-between border-bottom'>
-  <div class='is-flex is-align-items-center'>
-    <div class='header-logo d-inline'>
+<header class='flex justify-between px-8'>
+  <nav class='flex items-center navbar gap-4' role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <h1 class='text-2xl font-bold'>HauTrank2</h1>
     </div>
-    <nav class='navbar space-x-4' role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <h1 class='title d-inline text-contrast'>HauTrank2</h1>
-      </div>
-      <div class="navbar-start space-x-3 ml-6">
-        {{#each navbars}}
-          <a class="navbar-item {{this.pageName}} {{../page}} {{#if (eq ../page this.pageName)}}is-selected{{/if}}" href='{{#if (eq ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
-            {{this.title}}
-          </a>
-        {{/each}}
-      </div>
-    </nav>
-  </div>
+    <div class="navbar-start space-x-3 ml-6">
+      {{#each navbars}}
+        <a class="navbar-item py-2 px-3 rounded-lg hover:bg-primary/10 {{this.pageName}} {{../page}} {{#if (eq ../page this.pageName)}}text-primary font-semibold{{/if}}" href='{{#if (eq ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
+          {{this.title}}
+        </a>
+      {{/each}}
+    </div>
+  </nav>
   <div class='col'></div>
 </header>

@@ -16,12 +16,10 @@
 body {
   font-family: Helvetica, sans-serif;
   line-height: 1.6;
+  
   a {
     color: inherit;
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
   }
   h1,
   h2,
@@ -32,10 +30,6 @@ body {
   p {
     margin-bottom: 0;
   }
-
-  --bulma-primary-h: 198;
-  --bulma-primary-s: 100%;
-  --bulma-primary-l: 70%;
 }
 
 header {
@@ -48,16 +42,6 @@ header {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   nav {
-    .navbar-start {
-      align-items: center;
-      .navbar-item {
-        border-radius: 8px;
-        &.is-selected {
-          color: map-get($primary-colors, dark);
-          background-color: map-get($primary-colors, light);
-        }
-      }
-    }
   }
 }
 

@@ -7,6 +7,7 @@ import { engine } from 'express-handlebars';
 import guestRouter from '~/routes/guest';
 import adminRouter from '~/routes/admin';
 import multer from 'multer';
+import { helpers } from './utils/helpers';
 const app = express();
 dotenv.config();
 
@@ -46,27 +47,10 @@ app.engine(
   engine({
     extname: '.hbs',
     componentsDir: path.join(__dirname, 'views', 'components'),
-    helpers: {
-      eq: (a, b) => a === b,
-      formatDate: (date, format = 'MM/DD/YYYY') => {
-        if (!format) format = 'MM/DD/YYYY';
-        return dayjs(date).format(format);
-      },
-      math: (lvalue, operator, rvalue) => {
-        lvalue = parseFloat(lvalue);
-        rvalue = parseFloat(rvalue);
-        return {
-          '+': lvalue + rvalue,
-          '-': lvalue - rvalue,
-          '*': lvalue * rvalue,
-          '/': lvalue / rvalue,
-          '%': lvalue % rvalue,
-        }[operator];
-      },
-      jsonStringtify: (obj) => JSON.stringify(obj),
-    },
+    helpers,
   })
 );
+
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, '..', 'public')));
