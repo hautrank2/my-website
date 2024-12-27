@@ -1,7 +1,7 @@
-<div class='is-d-flex justify-content-end'>
-  <button type="button" class="btn btn-primary">
+<div class='is-flex justify-content-end'>
+  {{#> button}}
     <a href="./blog/form">Create</a>
-  </button>
+  {{/button}}
 </div>
 
 <div class='relative overflow-x-auto shadow-md sm:rounded-lg mt-4'>
@@ -28,14 +28,12 @@
           <td scope='row' class='px-6 py-4'>{{math @index '+' 1}}</td>
           <td class='px-6 py-4'>{{this.title}}</td>
           <td class='px-6 py-4'>{{this.description}}</td>
-          <td class='td-imageUrl px-6 py-4'>
-            <img
+          <td class='td-imageUrl px-6 py-4'><img
               src='{{this.imageUrl}}'
               class='img-thumbnail'
               alt='{{this.title}}'
               style='width: 64px; height: 64px;'
-            />
-          </td>
+            /></td>
           <td class='px-6 py-4'>
             <div class='' style='gap: 4px'>
               {{#each this.tags}}
@@ -67,7 +65,7 @@
             </div>
           </td>
           <td class='px-6 py-4'>
-            <div class='d-flex space-x-2'>
+            <div class='is-flex space-x-2'>
               <button type='button' class='button'>
                 <span class='icon is-small'>
                   <a href='/admin/blog/form?edit=true&blogId={{this._id}}'>
@@ -75,45 +73,44 @@
                   </a>
                 </span>
               </button>
-              <button type='button' data-modal-target="confirm-modal" data-modal-toggle="confirm-modal">
-                <i class='bx bx-trash'></i>
-              </button>
-              <div id="confirm-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center align-items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                  <!-- Modal content -->
-                  <form action='/admin/blog-delete' method='POST'>
-                    <input value='{{this._id}}' name='blogId' type='hidden' />
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="d-flex align-items-center justify-content-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Delete Blog
-                        </h3>
-                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-d-flex justify-center align-items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="confirm-modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="p-4 md:p-5 space-y-4">
-                        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                          Are you sure ?
-                        </p>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="d-flex align-items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        <button data-modal-hide="confirm-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirm</button>
-                        <button data-modal-hide="confirm-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>
-                    </div> 
-                  </form>
+              <form action='/admin/blog-delete' method='POST'>
+                <input value='{{this._id}}' name='blogId' type='hidden' />
+                <div id='deleteBlogModal' class='modal'>
+                  <div class='modal-background'></div>
+                  <div class='modal-card'>
+                    <header class='modal-card-head'>
+                      <p class='modal-card-title'>Delete Blog</p>
+                      <button class='delete' aria-label='close'></button>
+                    </header>
+                    <section class='modal-card-body'>
+                      Are you sure ?
+                    </section>
+                    <footer class='modal-card-foot'>
+                      <div class='buttons'>
+                        <button class='button is-white'>Cancel</button>
+                        <button class='button is-danger'>Confirm</button>
+                      </div>
+                    </footer>
+                  </div>
+                  <!-- Any other Bulma elements you want -->
                 </div>
-              </div>
+                <button
+                  type='button'
+                  class='button js-modal-trigger'
+                  data-target='deleteBlogModal'
+                  data-bs-toggle='modal'
+                >
+                  <span class='icon is-small'>
+                    <i class='bx bx-trash'></i>
+                  </span>
+                </button>
+              </form>
               <button type='button' class='button'>
-                <a href='/admin/blog/editor/{{this._id}}'>
-                  <i class='bx bxs-edit'></i>
-                </a>
+                <span class='icon is-small'>
+                  <a href='/admin/blog/editor/{{this._id}}'>
+                    <i class='bx bxs-edit'></i>
+                  </a>
+                </span>
               </button>
             </div>
           </td>

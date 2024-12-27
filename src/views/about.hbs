@@ -8,7 +8,7 @@
     <p class='subtitle is-5'>Web developer</p>
     <div class='contact space-y-1'>
       {{#each contactInfors}}
-        <div class='is-d-flex is-align-align-items-center {{this.key}} space-x-1'>
+        <div class='is-flex is-align-items-center {{this.key}} space-x-1'>
           <i class='{{this.icon}} has-text-grey bx-fw'></i>
           {{#if this.disable}}
             <p class='is-size-6 has-text-grey-dark'>{{this.value}}</p>

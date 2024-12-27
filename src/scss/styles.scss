@@ -9,10 +9,7 @@
   box-sizing: border-box;
 }
 
-:root, [data-bs-theme=light] {
-  --bs-primary: #ff5722; /* Custom primary color */
-  --bs-secondary: #607d8b; /* Custom secondary color */
-  --bs-success: #4caf50; /* Custom success color */
+:root {
 }
 
 /* Layout for header, main, and footer */

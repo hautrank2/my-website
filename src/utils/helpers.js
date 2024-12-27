@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-
 export const helpers = {
   eq: (a, b) => a === b,
   formatDate: (date, format = 'MM/DD/YYYY') => {
