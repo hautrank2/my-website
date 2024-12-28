@@ -1,8 +1,8 @@
-<div class="columns is-8">
+<div class="blogs-view grid grid-cols-4">
   {{#if blogs.length}}
     {{#each blogs}}
-      <div class="column">
-        <div class="card blog-card column is-4" style="height: 524px;">
+      <div class="col-span-1">
+        <div class="card blog-card border rounded border-2" style="height: 524px;">
           <div class="card-image">
             <figure class="image is-4by3">
               <img
@@ -12,11 +12,11 @@
               />
             </figure>
             </div>
-            <div class="card-content px-0">
+            <div class="card-content px-4">
               <div class="media mb-2">
                 <div class="">
                   <p class="subtitle is-6">{{formatDate this.createdAt ''}}</p>
-                  <p class="title is-4">{{this.title}}</p>
+                  <h4 class="title is-4">{{this.title}}</h4>
                 </div>
                 <div class="media-content">
                 </div>

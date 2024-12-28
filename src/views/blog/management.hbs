@@ -64,8 +64,9 @@
               </form>
             </div>
           </td>
+
           <td class='px-6 py-4'>
-            <div class='is-flex space-x-2'>
+            <div class='flex space-x-2'>
               <button type='button' class='button'>
                 <span class='icon is-small'>
                   <a href='/admin/blog/form?edit=true&blogId={{this._id}}'>
@@ -73,38 +74,37 @@
                   </a>
                 </span>
               </button>
-              <form action='/admin/blog-delete' method='POST'>
-                <input value='{{this._id}}' name='blogId' type='hidden' />
-                <div id='deleteBlogModal' class='modal'>
-                  <div class='modal-background'></div>
-                  <div class='modal-card'>
-                    <header class='modal-card-head'>
-                      <p class='modal-card-title'>Delete Blog</p>
-                      <button class='delete' aria-label='close'></button>
-                    </header>
-                    <section class='modal-card-body'>
-                      Are you sure ?
-                    </section>
-                    <footer class='modal-card-foot'>
+
+              <button
+                type='button'
+                modal-trigger="modal-delete"
+                modal-target="modal-delete-blog"
+              >
+                <span class='icon'>
+                  <i class='bx bx-trash'></i>
+                </span>
+              </button>
+              <div id="modal-delete-blog" class="hidden modal-wrapper">
+                <div class="modal-content">
+                  <form action='/admin/blog-delete' method='POST'>
+                    <input value='{{this._id}}' name='blogId' type='hidden' />
+                    <div class='modal-header'>
+                      <h3 class='modal-title'>Delete Blog</h3>
+                    </div>
+                    <div class='modal-body'>
+                      <p>Are you sure ?</p>
+                    </div>
+                    <div class='modal-footer'>
                       <div class='buttons'>
-                        <button class='button is-white'>Cancel</button>
-                        <button class='button is-danger'>Confirm</button>
+                        <button type="button" modal-close="modal-delete-blog">Cancel</button>
+                        <button type="submit" modal-ok="modal-delete-blog">Confirm</button>
                       </div>
-                    </footer>
-                  </div>
-                  <!-- Any other Bulma elements you want -->
+                    </div>
+                      <!-- Any other Bulma elements you want -->
+                  </form>
                 </div>
-                <button
-                  type='button'
-                  class='button js-modal-trigger'
-                  data-target='deleteBlogModal'
-                  data-bs-toggle='modal'
-                >
-                  <span class='icon is-small'>
-                    <i class='bx bx-trash'></i>
-                  </span>
-                </button>
-              </form>
+              </div>
+
               <button type='button' class='button'>
                 <span class='icon is-small'>
                   <a href='/admin/blog/editor/{{this._id}}'>

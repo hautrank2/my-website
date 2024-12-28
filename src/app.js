@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import dayjs from 'dayjs';
 import dotenv from 'dotenv';
 import path from 'path';
 import { engine } from 'express-handlebars';

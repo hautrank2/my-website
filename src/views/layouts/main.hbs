@@ -10,7 +10,7 @@
       {{/if}}
     </title>
     <link rel="stylesheet" href="/css/styles.css">
-    {{!-- Start: Boostrap --}}
+    {{!-- Start: UI --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/theme.js"></script>
     <style type="text/tailwindcss">
@@ -20,7 +20,8 @@
         }
       }
     </style>
-    {{!-- End: Boostrap --}}
+    
+    {{!-- End: UI --}}
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {{!-- Start: Quilljs --}}
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
@@ -35,14 +36,14 @@
     {{!-- End: Quilljs --}}
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
     <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
-    <script src="/js/main.js"></script>
   </head>
-  <body class="font-sans">
+  <body class="font-sans typography">
     {{>header}}
     <main>
       <div class="container mx-auto px-4">
         {{{body}}}
       </div>
     </main>
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>
