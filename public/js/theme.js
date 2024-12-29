@@ -21,6 +21,9 @@ tailwind.config = {
           900: '#1F2937', // Near black
           950: '#111827', // Pure blackish gray
         },
+        danger: {
+          DEFAULT: '#ef4444',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'], // Custom sans-serif stack

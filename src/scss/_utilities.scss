@@ -1,1 +1,14 @@
 @import 'variables';
+
+@keyframes openModal {
+  from {
+    scale: (0.4);
+  }
+  to {
+    scale: (1);
+  }
+}
+
+.animate-open {
+  animation: openModal 0.2s ease-in-out;
+}

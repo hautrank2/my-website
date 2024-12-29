@@ -120,6 +120,18 @@ body blockquote {
   margin: 1.5rem 0; /* Vertical spacing */
 }
 
+@keyframes openModal {
+  from {
+    scale: 0.4;
+  }
+  to {
+    scale: 1;
+  }
+}
+.animate-open {
+  animation: openModal 0.2s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -1,7 +1,5 @@
-<div class='is-flex justify-content-end'>
-  {{#> button}}
-    <a href="./blog/form">Create</a>
-  {{/button}}
+<div class='flex'>
+  <button href='./blog/form'>Create</button>
 </div>
 
 <div class='relative overflow-x-auto shadow-md sm:rounded-lg mt-4'>
@@ -56,7 +54,7 @@
                 action='/admin/blog/change-active/{{this._id}}'
                 method='post'
               >
-                <button type='submit' class='button'>
+                <button type='submit' class='button' variant="text">
                   <span class='icon is-small'>
                     <i class='bx bx-rotate-right'></i>
                   </span>
@@ -77,15 +75,15 @@
 
               <button
                 type='button'
-                modal-trigger="modal-delete"
-                modal-target="modal-delete-blog"
+                modal-trigger='modal-delete'
+                modal-target='modal-delete-blog'
               >
                 <span class='icon'>
                   <i class='bx bx-trash'></i>
                 </span>
               </button>
-              <div id="modal-delete-blog" class="hidden modal-wrapper">
-                <div class="modal-content">
+              <div id='modal-delete-blog' class='hidden modal-wrapper'>
+                <div class='modal-content max-w-72'>
                   <form action='/admin/blog-delete' method='POST'>
                     <input value='{{this._id}}' name='blogId' type='hidden' />
                     <div class='modal-header'>
@@ -96,11 +94,19 @@
                     </div>
                     <div class='modal-footer'>
                       <div class='buttons'>
-                        <button type="button" modal-close="modal-delete-blog">Cancel</button>
-                        <button type="submit" modal-ok="modal-delete-blog">Confirm</button>
+                        <button
+                          type='button'
+                          modal-close='modal-delete-blog'
+                          variant="text"
+                        >Cancel</button>
+                        <button
+                          type='submit'
+                          modal-ok='modal-delete-blog'
+                          variant="danger"
+                        >Confirm</button>
                       </div>
                     </div>
-                      <!-- Any other Bulma elements you want -->
+                    <!-- Any other Bulma elements you want -->
                   </form>
                 </div>
               </div>
