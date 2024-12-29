@@ -6,7 +6,7 @@ tailwind.config = {
         clifford: '#da373d',
         foreground: {
           DEFAULT: '#fffff', // Neutral text color
-          subtle: '#4a5568', // Subtle variation
+          subtitle: '#4a5568', // Subtle variation
         },
         neutral: {
           50: '#FFFFFF', // Pure white

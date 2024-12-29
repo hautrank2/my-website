@@ -45,7 +45,7 @@
   {{/if}}
 
   <div class="field">
-    <label class="label"for="tags-input">Tags</label>
+    <label class="label" for="tags-input">Tags</label>
     <div id="tags-input" class="grid grid-col-2 gx-3 gy-2 flex-wrap">
       {{#each values.tags}}
         <div class="tag-input col-span-1 tag-input flex space-x-2 items-center">
@@ -80,6 +80,10 @@
 
     newTagEl.appendChild(inputEl);
     newTagEl.appendChild(buttonEl);
+    
+    buttonEl.addEventListener('click',  () => {
+      newTagEl.remove();
+    });
 
     tagInputs.appendChild(newTagEl)
   }

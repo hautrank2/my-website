@@ -1,5 +1,5 @@
 <div class='flex'>
-  <button href='./blog/form'>Create</button>
+  <button variant='primary' href='./blog/form'>Create</button>
 </div>
 
 <div class='relative overflow-x-auto shadow-md sm:rounded-lg mt-4'>
@@ -43,18 +43,17 @@
             </div>
           </td>
           <td class='px-6 py-4'>
-            <div class=''>
+            <div>
               {{#if this.active}}
                 Active
               {{else}}
                 Inactive
               {{/if}}
               <form
-                class='ml-1'
                 action='/admin/blog/change-active/{{this._id}}'
                 method='post'
               >
-                <button type='submit' class='button' variant="text">
+                <button type='submit'>
                   <span class='icon is-small'>
                     <i class='bx bx-rotate-right'></i>
                   </span>
@@ -97,12 +96,12 @@
                         <button
                           type='button'
                           modal-close='modal-delete-blog'
-                          variant="text"
+                          variant='text'
                         >Cancel</button>
                         <button
                           type='submit'
                           modal-ok='modal-delete-blog'
-                          variant="danger"
+                          variant='danger'
                         >Confirm</button>
                       </div>
                     </div>
