@@ -2,7 +2,7 @@
   {{#if blogs.length}}
     {{#each blogs}}
       <div class="col-span-1">
-        <div class="card blog-card border rounded border-2" style="height: 524px;">
+        <div class="card blog-card border rounded-lg border-2 h-full">
           <div class="card-image">
             <figure class="image is-4by3">
               <img
@@ -22,8 +22,8 @@
                 </div>
               </div>
               <div class="content">{{this.description}}</div>
-              <div class="actions">
-                <button class="button"><a href="/blog/view/{{this._id}}"><i class='bx bx-book-open'></i></a></button>
+              <div class="actions mt-4 pt-2 border-t">
+                <button href="/blog/view/{{this._id}}" variant="text">Read</button>
               </div>
             </div>
         </div>
