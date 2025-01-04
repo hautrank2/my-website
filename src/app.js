@@ -7,28 +7,18 @@ import guestRouter from '~/routes/guest';
 import adminRouter from '~/routes/admin';
 import multer from 'multer';
 import { helpers } from './utils/helpers';
+import { fileStorage } from './utils/fileUtil';
+
 const app = express();
 dotenv.config();
 
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_DEFAULT_CLUSTER}.iizgaaw.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
 
-//Upload
-const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads/images');
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname
-    );
-  },
-});
-
 const fileFilter = (req, file, cb) => {
   const filetypes = /jpeg|jpg|png|gif/;
   const mimetype = filetypes.test(file.mimetype);
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+
   if (mimetype && extname) {
     return cb(null, true);
   } else {

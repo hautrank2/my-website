@@ -24,17 +24,10 @@ const blogSchema = new Schema(
       type: [String],
       default: [],
     },
-    blogContents: {
-      quill: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'BlogContent',
-      },
-      markdown: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: 'BlogContent',
-      },
+    blogContent: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'BlogContent',
     },
     active: {
       type: Boolean,

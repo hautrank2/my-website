@@ -1,54 +1,75 @@
-#editor-result {
+#quill-container .ql-editor,
+.blog-content .ql-editor {
   border: none;
 }
-#editor-result > * {
+#quill-container .ql-editor > *,
+.blog-content .ql-editor > * {
   font-family: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-#editor-result h1,
-#editor-result h2,
-#editor-result h3,
-#editor-result h4,
-#editor-result h5,
-#editor-result h6 {
+#quill-container .ql-editor h1,
+#quill-container .ql-editor h2,
+#quill-container .ql-editor h3,
+#quill-container .ql-editor h4,
+#quill-container .ql-editor h5,
+#quill-container .ql-editor h6,
+.blog-content .ql-editor h1,
+.blog-content .ql-editor h2,
+.blog-content .ql-editor h3,
+.blog-content .ql-editor h4,
+.blog-content .ql-editor h5,
+.blog-content .ql-editor h6 {
   font-weight: 600;
 }
-#editor-result h1 {
+#quill-container .ql-editor h1,
+.blog-content .ql-editor h1 {
   font-size: 2.5rem; /* 48px if 1rem = 16px */
 }
-#editor-result h2 {
+#quill-container .ql-editor h2,
+.blog-content .ql-editor h2 {
   font-size: 2rem; /* 40px */
 }
-#editor-result h3 {
+#quill-container .ql-editor h3,
+.blog-content .ql-editor h3 {
   font-size: 1.75rem; /* 32px */
 }
-#editor-result h4 {
+#quill-container .ql-editor h4,
+.blog-content .ql-editor h4 {
   font-size: 1.5rem; /* 28px */
 }
-#editor-result h5 {
+#quill-container .ql-editor h5,
+.blog-content .ql-editor h5 {
   font-size: 1.25rem; /* 24px */
 }
-#editor-result h6 {
+#quill-container .ql-editor h6,
+.blog-content .ql-editor h6 {
   font-size: 1.125rem; /* 20px */
 }
-#editor-result p {
+#quill-container .ql-editor p,
+.blog-content .ql-editor p {
   font-size: 1rem; /* 18px */
 }
-#editor-result p:has(img) {
+#quill-container .ql-editor p:has(img),
+.blog-content .ql-editor p:has(img) {
   display: flex;
   justify-content: center;
 }
-#editor-result p:has(img) img {
+#quill-container .ql-editor p:has(img) img,
+.blog-content .ql-editor p:has(img) img {
   max-width: 40%;
 }
-#editor-result ul li,
-#editor-result ol li {
+#quill-container .ql-editor ul li,
+#quill-container .ql-editor ol li,
+.blog-content .ql-editor ul li,
+.blog-content .ql-editor ol li {
   font-size: 1rem;
 }
-#editor-result blockquote {
+#quill-container .ql-editor blockquote,
+.blog-content .ql-editor blockquote {
   font-size: 1.25rem; /* 20px */
   font-style: italic;
 }
-#editor-result .ql-code-block-container {
+#quill-container .ql-editor .ql-code-block-container,
+.blog-content .ql-editor .ql-code-block-container {
   background-color: #f4f4f4;
   padding: 10px;
   border-left: 4px solid #e3a689;

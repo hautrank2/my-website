@@ -2,7 +2,7 @@ import { BLOG_TABLE, NAV_BARS } from '~/constants/blog';
 import { Blog } from '~/models/blog';
 import { BlogContent } from '~/models/blogContent';
 import { BlogEditorSession } from '~/models/BlogEditorSession';
-import fileUtil from '~/utils/fileUtil';
+import fileUtil, { deleteFile, deleteFiles } from '~/utils/fileUtil';
 import { transformErrorArrayToErrorForm } from '~/validators';
 
 const blogController = {};
@@ -29,7 +29,7 @@ blogController.viewBlogContent = async (req, res) => {
         .status(404)
         .send({ message: 'Could not find blog with id ' + blogId });
     }
-    const blogCtnId = blog.blogContents.quill;
+    const blogCtnId = blog.blogContent;
     const blogContent = await BlogContent.findById(blogCtnId).lean();
     res.render('blog/view', {
       page: 'blog',
@@ -67,8 +67,8 @@ blogController.viewBlogEditor = async (req, res, next) => {
   try {
     const blogId = req.params.blogId;
     const blog = await Blog.findById(blogId).lean();
-    if (blog.blogContents) {
-      const blogContentId = blog.blogContents.quill;
+    if (blog.blogContent) {
+      const blogContentId = blog.blogContent;
       const blogContent = await BlogContent.findById(blogContentId);
       res.render('blog/editor', {
         blog,
@@ -85,7 +85,8 @@ blogController.viewBlogEditor = async (req, res, next) => {
 blogController.uploadImg = async (req, res, next) => {
   try {
     const blogContentId = req.params.blogContentId;
-    const path = `/${req.file.path}`;
+    const path = req.file.path;
+    console.log(req.file.path);
     const blogES = await BlogEditorSession.findOne({ blogContentId });
     if (!blogES) {
       const blogEditorSession = new BlogEditorSession({
@@ -119,11 +120,10 @@ blogController.editBlogContent = async (req, res, next) => {
     //hanlde blogContent
     const blogES = await BlogEditorSession.findOne({ blogContentId });
     if (blogES) {
-      blogES.imageUrls.forEach((imgUrl) => {
-        if (!imgUrls.includes(imgUrl)) {
-          fileUtil.deleteFile(imgUrl.slice(1));
-        }
+      const deletedUrls = blogES.imageUrls.filter((imgUrl) => {
+        return !imgUrls.includes(imgUrl);
       });
+      await deleteFiles(deletedUrls);
       blogES.imageUrls = imgUrls;
       await blogES.save();
     }
@@ -155,23 +155,20 @@ blogController.viewBlogManagement = async (req, res, next) => {
 blogController.deleteBlog = async (req, res, next) => {
   try {
     const blogId = req.body.blogId;
-    const result = await Blog.findByIdAndDelete(blogId);
-    if (result.imageUrl) {
-      fileUtil.deleteFile(result.imageUrl.slice(1));
+    const blog = await Blog.findById(blogId);
+    if (blog.imageUrl) {
+      await deleteFile(blog.imageUrl);
     }
-    const blogContent = await BlogContent.findById(result.blogContents.quill);
+    const blogContent = await BlogContent.findById(blog.blogContent);
     const blogES = await BlogEditorSession.findById(blogContent._id);
     if (blogES) {
-      blogES.imageUrls.forEach((imgUrl) => {
-        fileUtil.deleteFile(imgUrl.slice(1));
-      });
+      await deleteFiles(blogES.imageUrls);
     }
-    await BlogContent.findByIdAndDelete(result.blogContents.quill);
-    await BlogContent.findByIdAndDelete(result.blogContents.html);
-    await BlogContent.findByIdAndDelete(result.blogContents.markdown);
     await BlogEditorSession.findOneAndDelete({
       blogContentId: blogContent._id,
     });
+    await BlogContent.findByIdAndDelete(blog.blogContent);
+    await Blog.findByIdAndDelete(blogId);
     res.redirect('/admin/blog');
   } catch (err) {
     console.log(err);
@@ -193,7 +190,6 @@ blogController.changeActive = async (req, res, next) => {
 
 blogController.createBlog = async (req, res, next) => {
   const { title, description, tags } = req.body;
-  console.log(req.body);
   if (req.validationErrors) {
     const values = {
       title,
@@ -208,24 +204,15 @@ blogController.createBlog = async (req, res, next) => {
   } else {
     try {
       const file = req.file;
-      const imageUrl = '/' + file.path;
-      const contentBlogMd = new BlogContent({
-        type: 'markdown',
-      });
-      await contentBlogMd.save();
-      const contentBlogQuill = new BlogContent({
-        type: 'quill',
-      });
-      await contentBlogQuill.save();
+      const imageUrl = file.path;
+      const contentBlog = new BlogContent({});
+      await contentBlog.save();
       const blog = Blog({
         title,
         description,
         imageUrl,
         tags,
-        blogContents: {
-          markdown: contentBlogMd._id,
-          quill: contentBlogQuill._id,
-        },
+        blogContent: contentBlog._id,
       });
       await blog.save();
       res.redirect('/admin/blog');
@@ -255,7 +242,7 @@ blogController.editBlog = async (req, res, next) => {
       const file = req.file;
       let imageUrl = '';
       if (file) {
-        fileUtil.deleteFile(req.body.imageUrl.slice(1)); // remove / on first
+        await deleteFile(req.body.imageUrl.slice(1)); // remove / on first
         imageUrl = '/' + file.path;
       } else {
         imageUrl = req.body.imageUrl;

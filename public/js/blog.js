@@ -54,10 +54,8 @@ const quill = new Quill('#editor', {
 quill.setContents(content);
 
 const onSaveBlogContent = async (blog) => {
-  if (blog.blogContents) {
-    const quillId = blog.blogContents.quill;
-    const markdownId = blog.blogContents.markdown;
-
+  if (blog.blogContent) {
+    const id = blog.blogContent;
     const delta = quill.getContents();
     const resultQuill = new Quill('#editor-result', {
       modules: {
@@ -67,12 +65,10 @@ const onSaveBlogContent = async (blog) => {
       readonly: true,
       theme: 'snow',
     });
-    console.log(delta);
-
     try {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      await fetch(`/admin/blog/edit-content/${quillId}`, {
+      await fetch(`/admin/blog/edit-content/${id}`, {
         method: 'POST',
         body: JSON.stringify({
           content: delta,

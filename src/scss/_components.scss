@@ -1,84 +1,87 @@
 @import 'variables'; // Import variables
 
-#editor-result {
-  border: none;
+#quill-container,
+.blog-content {
+  .ql-editor {
+    border: none;
 
-  & > * {
-    font-family:
-      Inter,
-      SF Pro,
-      Segoe UI,
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-  }
+    & > * {
+      font-family:
+        Inter,
+        SF Pro,
+        Segoe UI,
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 600;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 600;
+    }
 
-  h1 {
-    font-size: 2.5rem; /* 48px if 1rem = 16px */
-  }
+    h1 {
+      font-size: 2.5rem; /* 48px if 1rem = 16px */
+    }
 
-  h2 {
-    font-size: 2rem; /* 40px */
-  }
+    h2 {
+      font-size: 2rem; /* 40px */
+    }
 
-  h3 {
-    font-size: 1.75rem; /* 32px */
-  }
+    h3 {
+      font-size: 1.75rem; /* 32px */
+    }
 
-  h4 {
-    font-size: 1.5rem; /* 28px */
-  }
+    h4 {
+      font-size: 1.5rem; /* 28px */
+    }
 
-  h5 {
-    font-size: 1.25rem; /* 24px */
-  }
+    h5 {
+      font-size: 1.25rem; /* 24px */
+    }
 
-  h6 {
-    font-size: 1.125rem; /* 20px */
-  }
+    h6 {
+      font-size: 1.125rem; /* 20px */
+    }
 
-  p {
-    font-size: 1rem; /* 18px */
-    &:has(img) {
-      display: flex;
-      justify-content: center;
-      img {
-        max-width: 40%;
+    p {
+      font-size: 1rem; /* 18px */
+      &:has(img) {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 40%;
+        }
       }
     }
-  }
 
-  ul,
-  ol {
-    li {
+    ul,
+    ol {
+      li {
+        font-size: 1rem;
+      }
+    }
+
+    blockquote {
+      font-size: 1.25rem; /* 20px */
+      font-style: italic;
+    }
+
+    .ql-code-block-container {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-left: 4px solid #e3a689;
+      color: #000;
       font-size: 1rem;
     }
-  }
-
-  blockquote {
-    font-size: 1.25rem; /* 20px */
-    font-style: italic;
-  }
-
-  .ql-code-block-container {
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-left: 4px solid #e3a689;
-    color: #000;
-    font-size: 1rem;
   }
 }
 
