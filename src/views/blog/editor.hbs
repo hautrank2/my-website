@@ -1,5 +1,5 @@
 <form method='post' action='/admin/blog/edit-content/{{blog._id}}'>
-  <div>
+  <div class='flex justify-between items-center'>
     <h1 class='title is-size-5 mb-3 d-inline'>{{blog.title}}</h1>
     <button
       type='button'
@@ -54,7 +54,7 @@
       <button class='ql-clean'></button>
     </span>
   </div>
-  <div id='editor' class='blog-content'>
+  <div id='editor' class='blog-content edit'>
   </div>
 </form>
 <div id='editor-result' class='blog-content'></div>

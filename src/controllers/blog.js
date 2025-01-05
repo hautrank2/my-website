@@ -120,10 +120,11 @@ blogController.editBlogContent = async (req, res, next) => {
     //hanlde blogContent
     const blogES = await BlogEditorSession.findOne({ blogContentId });
     if (blogES) {
+      // Filter and delete image (exist on blog content)
       const deletedUrls = blogES.imageUrls.filter((imgUrl) => {
         return !imgUrls.includes(imgUrl);
       });
-      await deleteFiles(deletedUrls);
+      deletedUrls.length > 0 && (await deleteFiles(deletedUrls));
       blogES.imageUrls = imgUrls;
       await blogES.save();
     }

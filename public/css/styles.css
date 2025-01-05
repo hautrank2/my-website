@@ -1,3 +1,8 @@
+#quill-container.edit,
+.blog-content.edit {
+  overflow-y: auto;
+  max-height: 70vh;
+}
 #quill-container .ql-editor,
 .blog-content .ql-editor {
   border: none;
@@ -74,7 +79,16 @@
   padding: 10px;
   border-left: 4px solid #e3a689;
   color: #000;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+#quill-container .ql-editor select,
+.blog-content .ql-editor select {
+  color: #000;
+}
+#quill-container .ql-editor select option,
+.blog-content .ql-editor select option {
+  color: #000;
 }
 
 table th.th-imageUrl {
