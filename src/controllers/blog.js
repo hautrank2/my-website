@@ -86,7 +86,6 @@ blogController.uploadImg = async (req, res, next) => {
   try {
     const blogContentId = req.params.blogContentId;
     const path = req.file.path;
-    console.log(req.file.path);
     const blogES = await BlogEditorSession.findOne({ blogContentId });
     if (!blogES) {
       const blogEditorSession = new BlogEditorSession({

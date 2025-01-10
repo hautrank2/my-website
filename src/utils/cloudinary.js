@@ -13,13 +13,26 @@ export { cloudinary };
 export const cloudinaryStorage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: async (req, file) => {
+    const config = getConfig(req);
+    const { folderArr } = config;
     const fileName = getFileName(file);
     return {
-      folder: 'blog-test',
+      folder: folderArr.join('/'),
       public_id: fileName,
     };
   },
 });
+
+const getConfig = (req) => {
+  const folderArr = ['my-page'];
+
+  if (req.url.startsWith('/admin/blog')) {
+    folderArr.push('blog');
+  }
+  return {
+    folderArr,
+  };
+};
 
 //Upload
 // const fileStorage = multer.diskStorage({
