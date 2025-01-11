@@ -5,8 +5,11 @@ tailwind.config = {
         primary: '#2979a9',
         clifford: '#da373d',
         foreground: {
-          DEFAULT: '#fffff', // Neutral text color
+          DEFAULT: '#000', // Neutral text color
           subtitle: '#4a5568', // Subtle variation
+        },
+        background: {
+          DEFAULT: '#fff', // Neutral text color
         },
         neutral: {
           50: '#FFFFFF', // Pure white
@@ -26,7 +29,7 @@ tailwind.config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'], // Custom sans-serif stack
+        sans: ['Quicksand', 'system-ui', 'sans-serif'], // Custom sans-serif stack
         serif: ['Merriweather', 'serif'], // Custom serif stack
         mono: ['Fira Code', 'monospace'], // Custom monospace stack
         custom: ['"Your Custom Font"', 'sans-serif'], // Example custom font

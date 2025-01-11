@@ -2,28 +2,29 @@
   {{#if blogs.length}}
     {{#each blogs}}
       <div class="col-span-1">
-        <div class="card blog-card border rounded-lg border-2 h-full">
+        <div class="card blog-card rounded-lg h-full bg-primary/10 overflow-auto">
           <div class="card-image">
             <figure class="image is-4by3">
               <img
                 src='{{this.imageUrl}}'
                 alt='{{this.title}}'
-                class="has-background-primary-95"
+                class="object-cover w-full"
+                style="height: 240px;"
               />
             </figure>
             </div>
-            <div class="card-content px-4">
+            <div class="card-content p-6">
               <div class="media mb-2">
                 <div class="">
-                  <p class="subtitle is-6">{{formatDate this.createdAt ''}}</p>
-                  <h4 class="title is-4">{{this.title}}</h4>
+                  <p>{{formatDate this.createdAt ''}}</p>
+                  <h4>{{this.title}}</h4>
                 </div>
                 <div class="media-content">
                 </div>
               </div>
-              <div class="content">{{this.description}}</div>
+              <p class="line-clamp-4" data-tooltip="{{this.description}}">{{this.description}}</p>
               <div class="actions mt-4 pt-2 border-t">
-                <button href="/blog/view/{{this._id}}" variant="text">Read</button>
+                <button href="/blog/view/{{this._id}}">Read</button>
               </div>
             </div>
         </div>

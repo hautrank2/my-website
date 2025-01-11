@@ -1,6 +1,9 @@
 import './component/modal.js';
 import { cssButton } from './component/button.js';
 import { cssInput } from './component/input.js';
+import { cssTooptips, initCssTooltip } from './component/tooltip.js';
+
+initCssTooltip();
 
 const cssAfterDetech = (node, name, tagName, fns) => {
   // Check if the added node is an input element
@@ -35,3 +38,4 @@ observer.observe(document.body, {
   childList: true,
   subtree: true, // Observe changes to all descendants
 });
+

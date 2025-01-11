@@ -1,21 +1,21 @@
-body {
+body, .ql-snow .ql-editor {
   /* Headings */
   h1 {
     font-size: 2.5rem; /* 40px */
     line-height: 3rem; /* 48px */
-    font-weight: bold;
+    font-weight: 500;
   }
 
   h2 {
     font-size: 2rem; /* 32px */
     line-height: 2.5rem; /* 40px */
-    font-weight: semi-bold;
+    font-weight: 500;
   }
 
   h3 {
     font-size: 1.75rem; /* 28px */
     line-height: 2.25rem; /* 36px */
-    font-weight: semi-bold;
+    font-weight: 500;
   }
 
   h4 {
@@ -34,7 +34,7 @@ body {
   p {
     font-size: 1rem; /* 16px */
     line-height: 1.75rem; /* 28px */
-    color: #4b5563; /* Body text color */
+    color: #1c1b1d; /* Body text color */
   }
 
   /* Blockquote */

@@ -55,7 +55,7 @@
               >
                 <button type='submit'>
                   <span class='icon is-small'>
-                    <i class='bx bx-rotate-right'></i>
+                    <i class='bx bx-rotate-right bx-xs'></i>
                   </span>
                 </button>
               </form>
@@ -67,7 +67,7 @@
               <button type='button' class='button'>
                 <span class='icon is-small'>
                   <a href='/admin/blog/form?edit=true&blogId={{this._id}}'>
-                    <i class='bx bx-edit-alt'></i>
+                    <i class='bx bx-edit-alt bx-xs'></i>
                   </a>
                 </span>
               </button>
@@ -78,7 +78,7 @@
                 modal-target='modal-delete-blog'
               >
                 <span class='icon'>
-                  <i class='bx bx-trash'></i>
+                  <i class='bx bx-trash bx-xs'></i>
                 </span>
               </button>
               <div id='modal-delete-blog' class='hidden modal-wrapper'>
@@ -96,12 +96,12 @@
                         <button
                           type='button'
                           modal-close='modal-delete-blog'
-                          variant='text'
                         >Cancel</button>
                         <button
                           type='submit'
                           modal-ok='modal-delete-blog'
-                          variant='danger'
+                          variant='primary'
+                          color='danger'
                         >Confirm</button>
                       </div>
                     </div>
@@ -113,7 +113,7 @@
               <button type='button' class='button'>
                 <span class='icon is-small'>
                   <a href='/admin/blog/editor/{{this._id}}'>
-                    <i class='bx bxs-edit'></i>
+                    <i class='bx bxs-edit bx-xs'></i>
                   </a>
                 </span>
               </button>

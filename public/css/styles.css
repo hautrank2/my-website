@@ -1,93 +1,138 @@
+#quill-container,
+.blog-content.ql-container {
+  border-color: transparent;
+}
 #quill-container.edit,
-.blog-content.edit {
+.blog-content.ql-container.edit {
   overflow-y: auto;
   max-height: 70vh;
 }
+#quill-container#editor-result .ql-editor,
+.blog-content.ql-container#editor-result .ql-editor {
+  padding-left: 0;
+  padding-right: 0;
+}
 #quill-container .ql-editor,
-.blog-content .ql-editor {
+.blog-content.ql-container .ql-editor {
   border: none;
+  /* Paragraph */
 }
 #quill-container .ql-editor > *,
-.blog-content .ql-editor > * {
-  font-family: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+.blog-content.ql-container .ql-editor > * {
+  font-family: Quicksand, system-ui, sans-serif;
+}
+#quill-container .ql-editor strong,
+.blog-content.ql-container .ql-editor strong {
+  font-weight: 400;
 }
 #quill-container .ql-editor h1,
-#quill-container .ql-editor h2,
-#quill-container .ql-editor h3,
-#quill-container .ql-editor h4,
-#quill-container .ql-editor h5,
-#quill-container .ql-editor h6,
-.blog-content .ql-editor h1,
-.blog-content .ql-editor h2,
-.blog-content .ql-editor h3,
-.blog-content .ql-editor h4,
-.blog-content .ql-editor h5,
-.blog-content .ql-editor h6 {
-  font-weight: 600;
-}
-#quill-container .ql-editor h1,
-.blog-content .ql-editor h1 {
-  font-size: 2.5rem; /* 48px if 1rem = 16px */
-}
-#quill-container .ql-editor h2,
-.blog-content .ql-editor h2 {
+.blog-content.ql-container .ql-editor h1 {
   font-size: 2rem; /* 40px */
+  line-height: 3rem; /* 48px */
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+#quill-container .ql-editor h1:nth-child(1),
+.blog-content.ql-container .ql-editor h1:nth-child(1) {
+  margin-top: 0;
+}
+#quill-container .ql-editor h2,
+.blog-content.ql-container .ql-editor h2 {
+  font-size: 1.75rem; /* 32px */
+  line-height: 2.5rem; /* 40px */
+  font-weight: 500;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+#quill-container .ql-editor h2:nth-child(1),
+.blog-content.ql-container .ql-editor h2:nth-child(1) {
+  margin-top: 0;
 }
 #quill-container .ql-editor h3,
-.blog-content .ql-editor h3 {
-  font-size: 1.75rem; /* 32px */
+.blog-content.ql-container .ql-editor h3 {
+  font-size: 1.5rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 500;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+#quill-container .ql-editor h3:nth-child(1),
+.blog-content.ql-container .ql-editor h3:nth-child(1) {
+  margin-top: 0;
 }
 #quill-container .ql-editor h4,
-.blog-content .ql-editor h4 {
-  font-size: 1.5rem; /* 28px */
+.blog-content.ql-container .ql-editor h4 {
+  font-size: 1.25rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 500;
+}
+#quill-container .ql-editor h4:nth-child(1),
+.blog-content.ql-container .ql-editor h4:nth-child(1) {
+  margin-top: 0;
 }
 #quill-container .ql-editor h5,
-.blog-content .ql-editor h5 {
-  font-size: 1.25rem; /* 24px */
+.blog-content.ql-container .ql-editor h5 {
+  font-size: 1rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 500;
 }
-#quill-container .ql-editor h6,
-.blog-content .ql-editor h6 {
-  font-size: 1.125rem; /* 20px */
+#quill-container .ql-editor h5:nth-child(1),
+.blog-content.ql-container .ql-editor h5:nth-child(1) {
+  margin-top: 0;
 }
 #quill-container .ql-editor p,
-.blog-content .ql-editor p {
-  font-size: 1rem; /* 18px */
+.blog-content.ql-container .ql-editor p {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: #3b3b3b; /* Body text color */
+  margin-bottom: 8px;
+}
+#quill-container .ql-editor p:nth-child(1),
+.blog-content.ql-container .ql-editor p:nth-child(1) {
+  margin-top: 0;
 }
 #quill-container .ql-editor p:has(img),
-.blog-content .ql-editor p:has(img) {
-  display: flex;
-  justify-content: center;
-}
-#quill-container .ql-editor p:has(img) img,
-.blog-content .ql-editor p:has(img) img {
+.blog-content.ql-container .ql-editor p:has(img) {
   max-width: 40%;
+}
+#quill-container .ql-editor a,
+.blog-content.ql-container .ql-editor a {
+  text-decoration: none;
+  color: #2979a9;
 }
 #quill-container .ql-editor ul li,
 #quill-container .ql-editor ol li,
-.blog-content .ql-editor ul li,
-.blog-content .ql-editor ol li {
-  font-size: 1rem;
+.blog-content.ql-container .ql-editor ul li,
+.blog-content.ql-container .ql-editor ol li {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: #3b3b3b;
 }
-#quill-container .ql-editor blockquote,
-.blog-content .ql-editor blockquote {
-  font-size: 1.25rem; /* 20px */
-  font-style: italic;
+#quill-container .ql-editor ul li:has(img),
+#quill-container .ql-editor ol li:has(img),
+.blog-content.ql-container .ql-editor ul li:has(img),
+.blog-content.ql-container .ql-editor ol li:has(img) {
+  max-width: 40%;
 }
 #quill-container .ql-editor .ql-code-block-container,
-.blog-content .ql-editor .ql-code-block-container {
-  background-color: #f4f4f4;
-  padding: 10px;
+.blog-content.ql-container .ql-editor .ql-code-block-container {
+  font-family: "Fira Code", Courier, monospace;
+  background-color: transparent;
+  padding: 16px;
   border-left: 4px solid #e3a689;
   color: #000;
   font-size: 0.9rem;
   line-height: 1.4;
+  border: 0.2px #4c4c4c solid;
+  border-radius: 16px;
 }
 #quill-container .ql-editor select,
-.blog-content .ql-editor select {
+.blog-content.ql-container .ql-editor select {
   color: #000;
 }
 #quill-container .ql-editor select option,
-.blog-content .ql-editor select option {
+.blog-content.ql-container .ql-editor select option {
   color: #000;
 }
 
@@ -112,42 +157,42 @@ table img {
   white-space: normal;
 }
 
-body {
+body, .ql-snow .ql-editor {
   /* Headings */
   /* Paragraph */
   /* Blockquote */
 }
-body h1 {
+body h1, .ql-snow .ql-editor h1 {
   font-size: 2.5rem; /* 40px */
   line-height: 3rem; /* 48px */
-  font-weight: bold;
+  font-weight: 500;
 }
-body h2 {
+body h2, .ql-snow .ql-editor h2 {
   font-size: 2rem; /* 32px */
   line-height: 2.5rem; /* 40px */
-  font-weight: semi-bold;
+  font-weight: 500;
 }
-body h3 {
+body h3, .ql-snow .ql-editor h3 {
   font-size: 1.75rem; /* 28px */
   line-height: 2.25rem; /* 36px */
-  font-weight: semi-bold;
+  font-weight: 500;
 }
-body h4 {
+body h4, .ql-snow .ql-editor h4 {
   font-size: 1.5rem; /* 24px */
   line-height: 2rem; /* 32px */
   font-weight: 500;
 }
-body h5 {
+body h5, .ql-snow .ql-editor h5 {
   font-size: 1.25rem; /* 20px */
   line-height: 1.75rem; /* 28px */
   font-weight: 500;
 }
-body p {
+body p, .ql-snow .ql-editor p {
   font-size: 1rem; /* 16px */
   line-height: 1.75rem; /* 28px */
-  color: #4b5563; /* Body text color */
+  color: #1c1b1d; /* Body text color */
 }
-body blockquote {
+body blockquote, .ql-snow .ql-editor blockquote {
   font-style: italic;
   border-left: 4px solid #1d4ed8; /* Primary color */
   color: #374151; /* Dark Gray */
@@ -175,7 +220,6 @@ body blockquote {
 
 /* Layout for header, main, and footer */
 body {
-  font-family: Helvetica, sans-serif;
   line-height: 1.6;
 }
 body a {
@@ -189,8 +233,6 @@ header {
   top: 0;
   width: 100%;
   z-index: 1;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 main {
   margin-top: 64px;

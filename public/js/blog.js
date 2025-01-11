@@ -57,14 +57,6 @@ const onSaveBlogContent = async (blog) => {
   if (blog.blogContent) {
     const id = blog.blogContent;
     const delta = quill.getContents();
-    const resultQuill = new Quill('#editor-result', {
-      modules: {
-        toolbar: false,
-      },
-      placeholder: 'Compose an epic...',
-      readonly: true,
-      theme: 'snow',
-    });
     try {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');

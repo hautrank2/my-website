@@ -4,7 +4,7 @@ const content = scriptEl.getAttribute('content-data');
 
 const quill = new Quill('#editor-result', {
   modules: { toolbar: false },
-  placeholder: 'Composean epic...',
+  placeholder: 'No content',
   readonly: true,
   theme: 'snow',
 });

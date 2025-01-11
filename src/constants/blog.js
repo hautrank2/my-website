@@ -42,4 +42,9 @@ export const NAV_BARS = [
     path: '/about',
     title: 'About',
   },
+  {
+    pageName: 'moment',
+    path: '/moment',
+    title: 'Moment',
+  },
 ];
