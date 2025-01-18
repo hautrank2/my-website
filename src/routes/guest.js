@@ -1,6 +1,6 @@
 import express from 'express';
 import blogController from '~/controllers/blog';
-import momentController from '~/controllers/momentController';
+import momentController from '~/controllers/moment';
 import personalController from '~/controllers/personalController';
 
 const guestRouter = express.Router();

@@ -36,14 +36,15 @@
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
     <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
 
+    {{!-- Font --}}
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body class="font-sans typography bg-primary/5">
     {{>header}}
     <main>
-      <div class="container mx-auto px-4">
-        {{{body}}}
-      </div>
+      {{{body}}}
     </main>
     <script type="module" src="/js/main.js"></script>
   </body>

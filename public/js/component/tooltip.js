@@ -6,7 +6,8 @@ export const cssTooptips = (els) => {
   };
 
   els.forEach((el) => {
-    if (isOverflow(el)) {
+    const overflowTooltip = el.getAttribute('overflow-tooltip');
+    if (!overflowTooltip || isOverflow(el)) {
       const data = el.getAttribute('data-tooltip');
       const containerEl = document.body;
       const tooltipEl = document.createElement('div');

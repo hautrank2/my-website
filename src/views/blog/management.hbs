@@ -1,126 +1,128 @@
-<div class='flex'>
-  <button variant='primary' href='./blog/form'>Create</button>
-</div>
+<div class="container mx-auto ">
+  <div class='flex'>
+    <button variant='primary' href='./blog/form'>Create</button>
+  </div>
 
-<div class='relative overflow-x-auto shadow-md sm:rounded-lg mt-4'>
-  <table
-    class='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'
-  >
-    <thead
-      class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'
+  <div class='relative overflow-x-auto shadow-md sm:rounded-lg mt-4'>
+    <table
+      class='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'
     >
-      <tr>
-        <th scope='col' class='px-6 py-3'>#</th>
-        {{#each columns}}
-          <th class='th-{{this.key}} px-6 py-3' scope='col'>{{this.title}}</th>
-        {{/each}}
-        <th scope='col'></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each data}}
-        <tr
-          class='row-{{this._id}}
-            odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700'
-        >
-          <td scope='row' class='px-6 py-4'>{{math @index '+' 1}}</td>
-          <td class='px-6 py-4'>{{this.title}}</td>
-          <td class='px-6 py-4'>{{this.description}}</td>
-          <td class='td-imageUrl px-6 py-4'><img
-              src='{{this.imageUrl}}'
-              class='img-thumbnail'
-              alt='{{this.title}}'
-              style='width: 64px; height: 64px;'
-            /></td>
-          <td class='px-6 py-4'>
-            <div class='' style='gap: 4px'>
-              {{#each this.tags}}
-                <span
-                  style='font-size: 14px;'
-                  class='tag is-link is-light'
-                >{{this}}</span>
-              {{/each}}
-            </div>
-          </td>
-          <td class='px-6 py-4'>
-            <div>
-              {{#if this.active}}
-                Active
-              {{else}}
-                Inactive
-              {{/if}}
-              <form
-                action='/admin/blog/change-active/{{this._id}}'
-                method='post'
-              >
-                <button type='submit'>
+      <thead
+        class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'
+      >
+        <tr>
+          <th scope='col' class='px-6 py-3'>#</th>
+          {{#each columns}}
+            <th class='th-{{this.key}} px-6 py-3' scope='col'>{{this.title}}</th>
+          {{/each}}
+          <th scope='col'></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+          <tr
+            class='row-{{this._id}}
+              odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700'
+          >
+            <td scope='row' class='px-6 py-4'>{{math @index '+' 1}}</td>
+            <td class='px-6 py-4'>{{this.title}}</td>
+            <td class='px-6 py-4'>{{this.description}}</td>
+            <td class='td-imageUrl px-6 py-4'><img
+                src='{{this.imageUrl}}'
+                class='img-thumbnail'
+                alt='{{this.title}}'
+                style='width: 64px; height: 64px;'
+              /></td>
+            <td class='px-6 py-4'>
+              <div class='' style='gap: 4px'>
+                {{#each this.tags}}
+                  <span
+                    style='font-size: 14px;'
+                    class='tag is-link is-light'
+                  >{{this}}</span>
+                {{/each}}
+              </div>
+            </td>
+            <td class='px-6 py-4'>
+              <div>
+                {{#if this.active}}
+                  Active
+                {{else}}
+                  Inactive
+                {{/if}}
+                <form
+                  action='/admin/blog/change-active/{{this._id}}'
+                  method='post'
+                >
+                  <button type='submit'>
+                    <span class='icon is-small'>
+                      <i class='bx bx-rotate-right bx-xs'></i>
+                    </span>
+                  </button>
+                </form>
+              </div>
+            </td>
+
+            <td class='px-6 py-4'>
+              <div class='flex space-x-2'>
+                <button type='button' class='button'>
                   <span class='icon is-small'>
-                    <i class='bx bx-rotate-right bx-xs'></i>
+                    <a href='/admin/blog/form?edit=true&blogId={{this._id}}'>
+                      <i class='bx bx-edit-alt bx-xs'></i>
+                    </a>
                   </span>
                 </button>
-              </form>
-            </div>
-          </td>
 
-          <td class='px-6 py-4'>
-            <div class='flex space-x-2'>
-              <button type='button' class='button'>
-                <span class='icon is-small'>
-                  <a href='/admin/blog/form?edit=true&blogId={{this._id}}'>
-                    <i class='bx bx-edit-alt bx-xs'></i>
-                  </a>
-                </span>
-              </button>
-
-              <button
-                type='button'
-                modal-trigger='modal-delete'
-                modal-target='modal-delete-blog'
-              >
-                <span class='icon'>
-                  <i class='bx bx-trash bx-xs'></i>
-                </span>
-              </button>
-              <div id='modal-delete-blog' class='hidden modal-wrapper'>
-                <div class='modal-content max-w-72'>
-                  <form action='/admin/blog-delete' method='POST'>
-                    <input value='{{this._id}}' name='blogId' type='hidden' />
-                    <div class='modal-header'>
-                      <h3 class='modal-title'>Delete Blog</h3>
-                    </div>
-                    <div class='modal-body'>
-                      <p>Are you sure ?</p>
-                    </div>
-                    <div class='modal-footer'>
-                      <div class='buttons'>
-                        <button
-                          type='button'
-                          modal-close='modal-delete-blog'
-                        >Cancel</button>
-                        <button
-                          type='submit'
-                          modal-ok='modal-delete-blog'
-                          variant='primary'
-                          color='danger'
-                        >Confirm</button>
+                <button
+                  type='button'
+                  modal-trigger='modal-delete'
+                  modal-target='modal-delete-blog'
+                >
+                  <span class='icon'>
+                    <i class='bx bx-trash bx-xs'></i>
+                  </span>
+                </button>
+                <div id='modal-delete-blog' class='hidden modal-wrapper'>
+                  <div class='modal-content max-w-72'>
+                    <form action='/admin/blog-delete' method='POST'>
+                      <input value='{{this._id}}' name='blogId' type='hidden' />
+                      <div class='modal-header'>
+                        <h3 class='modal-title'>Delete Blog</h3>
                       </div>
-                    </div>
-                    <!-- Any other Bulma elements you want -->
-                  </form>
+                      <div class='modal-body'>
+                        <p>Are you sure ?</p>
+                      </div>
+                      <div class='modal-footer'>
+                        <div class='buttons'>
+                          <button
+                            type='button'
+                            modal-close='modal-delete-blog'
+                          >Cancel</button>
+                          <button
+                            type='submit'
+                            modal-ok='modal-delete-blog'
+                            variant='primary'
+                            color='danger'
+                          >Confirm</button>
+                        </div>
+                      </div>
+                      <!-- Any other Bulma elements you want -->
+                    </form>
+                  </div>
                 </div>
-              </div>
 
-              <button type='button' class='button'>
-                <span class='icon is-small'>
-                  <a href='/admin/blog/editor/{{this._id}}'>
-                    <i class='bx bxs-edit bx-xs'></i>
-                  </a>
-                </span>
-              </button>
-            </div>
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+                <button type='button' class='button'>
+                  <span class='icon is-small'>
+                    <a href='/admin/blog/editor/{{this._id}}'>
+                      <i class='bx bxs-edit bx-xs'></i>
+                    </a>
+                  </span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>

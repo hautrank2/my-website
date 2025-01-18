@@ -1,4 +1,4 @@
-<div class="blogs-view grid grid-cols-4">
+<div class="container mx-auto blogs-view grid grid-cols-4">
   {{#if blogs.length}}
     {{#each blogs}}
       <div class="col-span-1">
@@ -22,7 +22,7 @@
                 <div class="media-content">
                 </div>
               </div>
-              <p class="line-clamp-4" data-tooltip="{{this.description}}">{{this.description}}</p>
+              <p class="line-clamp-4" overflow-tooltip="true" data-tooltip="{{this.description}}">{{this.description}}</p>
               <div class="actions mt-4 pt-2 border-t">
                 <button href="/blog/view/{{this._id}}">Read</button>
               </div>

@@ -8,7 +8,45 @@ import { transformErrorArrayToErrorForm } from '~/validators';
 const blogController = {};
 
 blogController.viewHome = (req, res) => {
-  res.render('home', { page: 'home', navbars: NAV_BARS });
+  const stacks = [
+    {
+      title: 'Frontend',
+      background: '/img/frontend.svg',
+      techs: [
+        { logo: 'bx bxl-react', title: 'React' },
+        { logo: 'bx bxl-angular', title: 'Angular' },
+      ],
+      content:
+        'Frontend development refers to the part of web development that focuses on the user-facing aspects of a website or application. It involves creating everything that users see, interact with, and experience directly on their screens. This includes the layout, design, navigation, and responsiveness of a website or app.',
+    },
+    {
+      title: 'Backend',
+      background: '/img/backend.svg',
+      techs: [{ logo: 'bx bxl-nodejs', title: 'Nodejs' }],
+      content:
+        'The backend is the server-side part of a web application responsible for managing the logic, database operations, and communication with the frontend. It handles data processing, business logic, and the underlying infrastructure that powers an application.',
+    },
+    {
+      title: 'UI/UX design',
+      background: '/img/ui_ux.svg',
+      techs: [{ logo: 'bx bxl-figma', title: 'Figma' }],
+      content:
+        'UI/UX Design is a critical process in creating digital products that are visually appealing, user-friendly, and effective. It focuses on both the aesthetics and the overall experience of interacting with a website, app, or software.',
+    },
+  ];
+
+  const sections = [
+    {
+      id: 'overview',
+      title: 'Overview',
+    },
+    {
+      id: 'stacks',
+      title: 'Stacks',
+    },
+  ];
+
+  res.render('home', { page: 'home', navbars: NAV_BARS, stacks, sections });
 };
 
 blogController.viewBlog = async (req, res) => {

@@ -1,1 +1,100 @@
-<h1>Example App: Home</h1>
+<div id='homePage' class='home-page relative'>
+  <ul
+    id='sectionIndex'
+    class='fixed right-16 bottom-32 z-10 bg-primary/10 p-4 rounded-xl shadow-lg w-32'
+  >
+    {{#each sections}}
+      <li><a href='#{{this.id}}' class='leading-loose text-sm text-primary hover:font-bold'>{{this.title}}</a></li>
+    {{/each}}
+  </ul>
+
+  <section id='overview' class='section-overview p-16' style='height: 90vh;'>
+    <div
+      class='p-16 grid grid-cols-3 border-foreground rounded-2xl bg-background shadow-xl drop-shadow-xl h-full'
+    >
+      <div class='col-span-2'>
+        <h1
+          class='font-bold text-primary'
+          style='font-size: 6rem; line-height: 1.1;'
+        >
+          I'm a Web developer.
+        </h1>
+
+        <div class='description mt-16 font-xl'>
+          <p class='text-lg'>
+            Tôi từng tốt nghiệp một trường đại học với ngành công nghệ thông tin
+            chuyên ngành Công nghệ phần mềm và đã có 2 năm làm việc với vị trí
+            Frontend developer và UI/UX design
+          </p>
+          <p class='text-lg mt-2'>
+            Tôi muốn tạo ra những website đơn giản, tiện dụng và trải nghiệm dễ
+            dàng.
+          </p>
+        </div>
+
+        <div class='stacks flex items-center w-full gap-12 mt-12'>
+          {{#each stacks}}
+            <div
+              class='tag px-12 py-3 font-medium rounded-full border border-foreground'
+            >
+              {{this.title}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      {{! <div class='col-span-1'>
+      <div class='flex justify-center h-full items-center'>
+        <img class='rounded-xl w-60 h-auto' src='/img/avt.jpg' />
+      </div>
+    </div> }}
+    </div>
+  </section>
+
+  <section id='stacks'>
+    <div class='grid grid-cols-1 bg-primary/10 mx-16 my-8 rounded-xl'>
+      {{#each stacks}}
+        <div
+          class='col-span-1 p-8
+            {{eqZero @index "" "border-t border-foreground/40"}}'
+        >
+          <div class='grid grid-cols-3 gap-16'>
+            <div class='col-span-2 {{isOddNumber @index "order-2"}}'>
+              <h2 class='{{isOddNumber @index "text-right"}}'>
+                {{this.title}}
+              </h2>
+
+              <div
+                class='flex flex-row mt-4 items-center
+                  {{isOddNumber @index "justify-end"}}'
+              >
+                <p class='text-lg font-medium'>Technology:</p>
+                <div class='ms-4'>
+                  {{#each this.techs}}
+                    <i
+                      data-tooltip='{{this.title}}'
+                      class='{{this.logo}} bx-lg'
+                    ></i>
+                  {{/each}}
+                </div>
+              </div>
+
+              <div
+                class='flex flex-row mt-4 items-center
+                  {{isOddNumber @index "text-right"}}'
+              >
+                <p>{{this.content}}</p>
+              </div>
+            </div>
+            <div class='col-span-1 {{isOddNumber @index "order-1"}}'>
+              <img
+                class='w-full'
+                src='{{this.background}}'
+                alt='Logo-technology'
+              />
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</div>

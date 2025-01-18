@@ -1,11 +1,11 @@
-<header class='flex justify-between px-8 border-b border-foreground/40' style="padding-right: 24rem;">
+<header class='page-header flex justify-between px-8' style="padding-right: 4em;">
   <div class="navbar-brand flex items-center">
     <h1 class='text-2xl font-bold'>HauTrank2</h1>
   </div>
   <nav class='flex items-center navbar gap-4' role="navigation" aria-label="main navigation">
     <div class="navbar-start space-x-3 ml-6">
       {{#each navbars}}
-        <a class="navbar-item border-100 py-2 px-4 rounded-full hover:bg-primary/10 {{this.pageName}} {{../page}} {{#if (eq ../page this.pageName)}}text-primary font-semibold{{/if}}" href='{{#if (eq ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
+        <a class="navbar-item border-100 text-lg py-2 px-4 rounded-full hover:bg-primary/10 {{this.pageName}} {{../page}} {{#if (eq ../page this.pageName)}}text-primary font-semibold{{/if}}" href='{{#if (eq ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
           {{this.title}}
         </a>
       {{/each}}

@@ -29,7 +29,7 @@ tailwind.config = {
         },
       },
       fontFamily: {
-        sans: ['Quicksand', 'system-ui', 'sans-serif'], // Custom sans-serif stack
+        sans: ['Nunito', 'system-ui', 'sans-serif'], // Custom sans-serif stack
         serif: ['Merriweather', 'serif'], // Custom serif stack
         mono: ['Fira Code', 'monospace'], // Custom monospace stack
         custom: ['"Your Custom Font"', 'sans-serif'], // Example custom font

@@ -1,6 +1,8 @@
 import './component/modal.js';
 import { cssButton } from './component/button.js';
 import { cssInput } from './component/input.js';
+import './component/layout.js';
+import './pages/home.js';
 import { cssTooptips, initCssTooltip } from './component/tooltip.js';
 
 initCssTooltip();
@@ -38,4 +40,3 @@ observer.observe(document.body, {
   childList: true,
   subtree: true, // Observe changes to all descendants
 });
-
