@@ -3,12 +3,17 @@
     <h1 class='text-2xl font-bold'>HauTrank2</h1>
   </div>
   <nav class='flex items-center navbar gap-4' role="navigation" aria-label="main navigation">
-    <div class="navbar-start space-x-3 ml-6">
-      {{#each navbars}}
-        <a class="navbar-item border-100 text-lg py-2 px-4 rounded-full hover:bg-primary/10 {{this.pageName}} {{../page}} {{#if (eq ../page this.pageName)}}text-primary font-semibold{{/if}}" href='{{#if (eq ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
-          {{this.title}}
-        </a>
-      {{/each}}
-    </div>
+    {{#if noHeader}} 
+    {{else}}
+      <div class="navbar-start space-x-3 ml-6">
+        {{#each navbars}}
+        {{#if this.nav}}
+            <a class="navbar-item border-100 text-lg py-2 px-4 rounded-full hover:bg-primary/10 {{this.pageName}} {{../page}} {{#if (startsWith ../page this.pageName)}}text-primary font-semibold{{/if}}" href='{{#if (startsWith ../page this.pageName)}}#{{else}}{{this.path}}{{/if}}'>
+              {{this.title}}
+            </a>
+        {{/if}}
+        {{/each}}
+      </div>
+    {{/if}}
   </nav>
 </header>

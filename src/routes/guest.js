@@ -2,6 +2,7 @@ import express from 'express';
 import blogController from '~/controllers/blog';
 import momentController from '~/controllers/moment';
 import personalController from '~/controllers/personalController';
+import projectController from '~/controllers/project';
 
 const guestRouter = express.Router();
 
@@ -11,5 +12,6 @@ guestRouter.get('/blog/view/:blogId', blogController.viewBlogContent);
 
 guestRouter.get('/about', personalController.viewabout);
 guestRouter.get('/moment', momentController.viewMoment);
+guestRouter.get('/project', projectController.viewProject);
 
 export default guestRouter;
