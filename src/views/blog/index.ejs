@@ -1,13 +1,14 @@
+<%- include('../layouts/head') %>
 <div class="container mx-auto blogs-view grid grid-cols-4">
-  {{#if blogs.length}}
-    {{#each blogs}}
+  <% if (blogs.length > 0) { %>
+    <% blogs.forEach(blog => { %>
       <div class="col-span-1">
         <div class="card blog-card rounded-lg h-full bg-primary/10 overflow-auto">
           <div class="card-image">
             <figure class="image is-4by3">
               <img
-                src='{{this.imageUrl}}'
-                alt='{{this.title}}'
+                src='<%=blog.imageUrl%>'
+                alt='<%=blog.title%>'
                 class="object-cover w-full"
                 style="height: 240px;"
               />
@@ -16,21 +17,23 @@
             <div class="card-content p-6">
               <div class="media mb-2">
                 <div class="">
-                  <p>{{formatDate this.createdAt ''}}</p>
-                  <h4>{{this.title}}</h4>
+                  <p><%=helper.formatDate(blog.createdAt)%></p>
+                  <h4><%=blog.title%></h4>
                 </div>
                 <div class="media-content">
                 </div>
               </div>
-              <p class="line-clamp-4" overflow-tooltip="true" data-tooltip="{{this.description}}">{{this.description}}</p>
+              <p class="line-clamp-4" overflow-tooltip="true" data-tooltip="<%=blog.description%>"><%=blog.description%></p>
               <div class="actions mt-4 pt-2 border-t">
-                <button href="/blog/view/{{this._id}}">Read</button>
+                <button href="/blog/view/<%=blog._id%>">Read</button>
               </div>
             </div>
         </div>
       </div>
-    {{/each}}
-  {{else}}
-    {{> empty message="No blogs available right now"}}
-  {{/if}}
+    <% }) %>
+  <% } else {%>
+    <%- include('../partials/empty', { message: "No blogs available right now" })%>
+  <% } %>
 </div>
+
+<%- include('../layouts/end') %>

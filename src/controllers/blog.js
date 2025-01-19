@@ -92,7 +92,7 @@ blogController.viewBlogForm = async (req, res, next) => {
     res.render('blog/form', {
       page: 'admin/blog',
       navbars: NAV_BARS,
-      formErrors: req.validationErrors,
+      formError: req.validationErrors || {},
       values,
       isEdit,
     });
@@ -109,6 +109,7 @@ blogController.viewBlogEditor = async (req, res, next) => {
       const blogContentId = blog.blogContent;
       const blogContent = await BlogContent.findById(blogContentId);
       res.render('blog/editor', {
+        page: 'Blog',
         blog,
         navbars: NAV_BARS,
         content: JSON.stringify(blogContent.content),

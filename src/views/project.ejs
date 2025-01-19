@@ -1,0 +1,44 @@
+<%- include('./layouts/head') %>
+<div id='projectPage' class='container mt-8'>
+  <div class='grid grid-cols-2'>
+    <div class='col-span-1'>
+      <ul>
+        <% data.forEach(item => { %>
+          <li class='<%=item.id%>'>
+            <h2><%=item.title%></h2>
+            <!-- <h5><%=item.subtitle%> (<%=item.duration.start%> - <%=item.duration.end%>)</h5> -->
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class='col-span-1'></div>
+  </div>
+</div>
+
+<script>
+  function addTag() {
+    const tagInputs = document.querySelector('#tags-input')
+    const newTagEl = document.createElement('div');
+    newTagEl.setAttribute('class', 'tag-input col-span-1 tag-input flex space-x-2 items-center');
+
+    const inputEl = document.createElement('input');
+    inputEl.setAttribute('type', 'text');
+    inputEl.setAttribute('name', 'tags[]');
+    inputEl.setAttribute('placeholder', 'Enter a tag');
+
+    const buttonEl = document.createElement('button');
+    buttonEl.setAttribute('type', 'button');
+    buttonEl.innerHTML = "<i class='bx bx-trash'></i>";
+
+    newTagEl.appendChild(inputEl);
+    newTagEl.appendChild(buttonEl);
+    
+    buttonEl.addEventListener('click',  () => {
+      newTagEl.remove();
+    });
+
+    tagInputs.appendChild(newTagEl)
+  }
+</script>    
+
+<%- include('./layouts/end') %>

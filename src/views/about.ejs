@@ -1,0 +1,56 @@
+<%- include('./layouts/head') %>
+
+<div class='container mx-auto mt-8 grid grid-cols-2 is-desktop g-2'>
+  <div class='col-span-1'>
+    <figure class='image' style='width: 240px;'>
+      <img src='/img/avt.jpg' alt='My avatar' class='is-rounded' />
+    </figure>
+    <br />
+    <h2 class='font-semibold'>Tran Trung Hau</h2>
+    <h5 class='font-normal'>Web developer</h5>
+    <div class='contact space-y-1 mt-4'>
+      <% contactInfors.forEach(item => { %>
+        <div class='flex items-center <%=item.key%> space-x-1'>
+          <i
+            class='<%=item.icon%> has-text-grey bx-fw text-foreground-subtitle'
+          ></i>
+          <% if(item.disable) { %>
+            <p class=''><%=item.value%></p>
+          <% } else { %>
+            <a href='<%=item.value%>'><%= item.value ? item.value : item.label %></a>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <div class='col-span-1'>
+  </div>
+</div>
+
+<script>
+  function addTag() {
+    const tagInputs = document.querySelector('#tags-input')
+    const newTagEl = document.createElement('div');
+    newTagEl.setAttribute('class', 'tag-input col-span-1 tag-input flex space-x-2 items-center');
+
+    const inputEl = document.createElement('input');
+    inputEl.setAttribute('type', 'text');
+    inputEl.setAttribute('name', 'tags[]');
+    inputEl.setAttribute('placeholder', 'Enter a tag');
+
+    const buttonEl = document.createElement('button');
+    buttonEl.setAttribute('type', 'button');
+    buttonEl.innerHTML = "<i class='bx bx-trash'></i>";
+
+    newTagEl.appendChild(inputEl);
+    newTagEl.appendChild(buttonEl);
+    
+    buttonEl.addEventListener('click',  () => {
+      newTagEl.remove();
+    });
+
+    tagInputs.appendChild(newTagEl)
+  }
+</script>    
+
+<%- include('./layouts/end') %>

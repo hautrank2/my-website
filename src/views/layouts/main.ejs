@@ -1,15 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset='utf-8' />
+    <meta charset="utf-8" />
     <title>
-      {{#if title}}
-        {{title}}
-      {{else}}
-        HauTrank2
-      {{/if}}
+      <% if (title) { %> <%= title %> <% } else { %> HauTrank2 <% } %>
     </title>
-    {{!-- Start: UI --}}
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/theme.js"></script>
     <style type="text/tailwindcss">
@@ -19,11 +15,15 @@
         }
       }
     </style>
-    
-    {{!-- End: UI --}}
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    {{!-- Start: Quilljs --}}
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
@@ -31,21 +31,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
-    {{!-- End: Quilljs --}}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    />
+
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
     <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
 
-    {{!-- Font --}}
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
+
   <body class="font-sans typography bg-primary/5">
-    {{>header}}
-    <main>
-      {{{body}}}
-    </main>
+    <%- include('../layouts/header') %>
+    <main><%- body %></main>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

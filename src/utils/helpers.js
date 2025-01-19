@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-export const helpers = {
+export default {
   eq: (a, b) => a === b,
   startsWith: (a, b) => a.startsWith(b),
   eqZero: (a, result, result2) => (a === 0 ? result : result2),

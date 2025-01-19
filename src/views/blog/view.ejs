@@ -1,0 +1,25 @@
+<%- include('../layouts/head') %>
+<div class="container view-blog mx-auto mt-8" style="max-width: 64vw">
+  <div class="header">
+    <div class="flex justify-between">
+      <h1><%=blog.title%></h1>
+      <p class="text-foreground/60">
+        Public time: <%=helper.formatDate(blog.createdAt)%>, Update:
+        <%=helper.formatDate(blog.updatedAt)%>
+      </p>
+    </div>
+    <p class="mt-4 font-normal"><%=blog.description%></p>
+  </div>
+
+  <div class="my-8"></div>
+  <div id="editor-result" class="blog-content"></div>
+
+  <script
+    id="blogContentScript"
+    content-data="<%=content%>"
+    src="/js/blog/view.js"
+  ></script>
+</div>
+<%- include('../layouts/end') %>
+
+

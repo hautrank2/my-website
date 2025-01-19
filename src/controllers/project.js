@@ -7,7 +7,12 @@ const commonProp = {
 };
 
 projectController.viewProject = (req, res) => {
-  res.render('project', { page: 'project', navbars: NAV_BARS, ...commonProp });
+  res.render('project', {
+    page: 'project',
+    navbars: NAV_BARS,
+    data: [],
+    ...commonProp,
+  });
 };
 
 export default projectController;
