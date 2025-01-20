@@ -1,44 +1,30 @@
 <%- include('./layouts/head') %>
-<div id='projectPage' class='container mt-8'>
-  <div class='grid grid-cols-2'>
+<div id='projectPage' class='container mt-8 mx-auto'>
+  <div class='grid grid-cols-3 gap-8'>
     <div class='col-span-1'>
-      <ul>
-        <% data.forEach(item => { %>
-          <li class='<%=item.id%>'>
-            <h2><%=item.title%></h2>
-            <!-- <h5><%=item.subtitle%> (<%=item.duration.start%> - <%=item.duration.end%>)</h5> -->
+      <ul class="project-list">
+        <% data.forEach((item, index) => { %>
+          <li class='<%=item.id%> p-4 rounded-xl border border-transparent hover:border-neutral-900 hover:cursor-pointer' data-index="<%= index %>">
+            <h5 class="font-semibold"><%=item.title%></h5>
+            <p class="text-sm"><%=item.subtitle%> (<%= helper.formatDate(item.duration[0], 'MMM YYYY', 'MM/YYYY')%> - <%= helper.formatDate(item.duration[1], 'MMM YYYY', 'MM/YYYY') %>)</p>
+            <!-- <p class="mt-4 line-clamp-3 text-sm" overflow-tooltip="true" data-tooltip="<%= item.description %>"><%= item.description %></p>
+            <div class="flex items-center mt-4">
+              <% item.links.forEach(link => { %>
+                <a href="<%= link.url %>" target="_blank" data-tooltip="<%= link.name %>" class="text-md text-foreground/70">
+                  <i class="<%= link.icon %>"></i>
+                </a>
+              <% }) %>
+            </div> -->        
           </li>
         <% }) %>
       </ul>
     </div>
-    <div class='col-span-1'></div>
+    <div class='col-span-2'>
+      <!-- Detail -->
+       <div class="project-detail"></div>
+    </div>
   </div>
 </div>
-
-<script>
-  function addTag() {
-    const tagInputs = document.querySelector('#tags-input')
-    const newTagEl = document.createElement('div');
-    newTagEl.setAttribute('class', 'tag-input col-span-1 tag-input flex space-x-2 items-center');
-
-    const inputEl = document.createElement('input');
-    inputEl.setAttribute('type', 'text');
-    inputEl.setAttribute('name', 'tags[]');
-    inputEl.setAttribute('placeholder', 'Enter a tag');
-
-    const buttonEl = document.createElement('button');
-    buttonEl.setAttribute('type', 'button');
-    buttonEl.innerHTML = "<i class='bx bx-trash'></i>";
-
-    newTagEl.appendChild(inputEl);
-    newTagEl.appendChild(buttonEl);
-    
-    buttonEl.addEventListener('click',  () => {
-      newTagEl.remove();
-    });
-
-    tagInputs.appendChild(newTagEl)
-  }
-</script>    
+<script id="projectPageScript" data-helper="<%= helper.jsonStringtify(helper) %>" data="<%= helper.jsonStringtify(data) %>" src="/js/project.js" defer></script>
 
 <%- include('./layouts/end') %>

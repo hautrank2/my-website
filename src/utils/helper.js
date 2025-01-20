@@ -1,4 +1,6 @@
 import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
 
 export default {
   eq: (a, b) => a === b,
@@ -7,9 +9,8 @@ export default {
   isEvenNumber: (a, result) => (a % 2 === 0 ? result : false),
   isOddNumber: (a, result) => (a % 2 !== 0 ? result : false),
 
-  formatDate: (date, format = 'MM/DD/YYYY') => {
-    if (!format) format = 'MM/DD/YYYY';
-    return dayjs(date).format(format);
+  formatDate: (date, format = 'MM/DD/YYYY', _format) => {
+    return dayjs(date, _format).format(format);
   },
   math: (lvalue, operator, rvalue) => {
     lvalue = parseFloat(lvalue);

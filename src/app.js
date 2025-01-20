@@ -6,7 +6,7 @@ import { engine } from 'express-handlebars';
 import guestRouter from '~/routes/guest';
 import adminRouter from '~/routes/admin';
 import multer from 'multer';
-import helpers from './utils/helpers';
+import helper from './utils/helper';
 import { fileStorage } from './utils/fileUtil';
 
 const app = express();
@@ -36,7 +36,7 @@ app.engine(
   engine({
     extname: '.hbs',
     componentsDir: path.join(__dirname, 'views', 'components'),
-    helpers,
+    helper,
   })
 );
 
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use((_, res, next) => {
-  res.locals.helper = helpers;
+  res.locals.helper = helper;
   next();
 });
 app.use(guestRouter);
