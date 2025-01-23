@@ -42,9 +42,13 @@
     />
 
     <link rel="stylesheet" href="/css/styles.css" />
+    <!-- DAYjs -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/customParseFormat.js"></script>
+    <script>
+      dayjs.extend(window.dayjs_plugin_customParseFormat);
+    </script>
   </head>
 
   <body class="font-sans typography bg-primary/5">
     <%- include('./header') %>
-    <main>
-

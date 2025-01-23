@@ -4,7 +4,7 @@
     <div class='col-span-1'>
       <ul class="project-list">
         <% data.forEach((item, index) => { %>
-          <li class='<%=item.id%> p-4 rounded-xl border border-transparent hover:border-neutral-900 hover:cursor-pointer' data-index="<%= index %>">
+          <li class='<%=item.id%> p-4 rounded-xl border border-transparent hover:border-neutral-900 hover:cursor-pointer mt-2' data-index="<%= index %>">
             <h5 class="font-semibold"><%=item.title%></h5>
             <p class="text-sm"><%=item.subtitle%> (<%= helper.formatDate(item.duration[0], 'MMM YYYY', 'MM/YYYY')%> - <%= helper.formatDate(item.duration[1], 'MMM YYYY', 'MM/YYYY') %>)</p>
             <!-- <p class="mt-4 line-clamp-3 text-sm" overflow-tooltip="true" data-tooltip="<%= item.description %>"><%= item.description %></p>
@@ -25,6 +25,6 @@
     </div>
   </div>
 </div>
-<script id="projectPageScript" data-helper="<%= helper.jsonStringtify(helper) %>" data="<%= helper.jsonStringtify(data) %>" src="/js/project.js" defer></script>
+<script type="module" id="projectPageScript" data-helper="<%= helper.jsonStringtify(helper) %>" data="<%= helper.jsonStringtify(data) %>" src="/js/project.js" defer></script>
 
 <%- include('./layouts/end') %>

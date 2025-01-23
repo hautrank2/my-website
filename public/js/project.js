@@ -1,29 +1,35 @@
+import { addClass, removeClass } from './util.js';
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 const $ = document.querySelector.bind(document);
 const projectPage = $('#projectPage');
 const script = $('#projectPageScript');
 const data = JSON.parse(script.getAttribute('data'));
-const helper = JSON.parse(script.dataset.helper);
-console.log(helper);
 const detailContainer = projectPage.querySelector('.project-detail');
 
 document.addEventListener('DOMContentLoaded', () => {
   const listContainer = document.querySelector('.project-list');
   const listItems = listContainer.querySelectorAll('li');
-  listItems.forEach((li) => {
+  listItems.forEach((li, index) => {
     li.addEventListener('click', (event) => {
       const index = li.getAttribute('data-index');
-      onDetail(index);
+      onDetail(index, () => {
+        const className = 'border-foreground/40';
+        listItems.forEach((li) => {
+          removeClass(li, className);
+        });
+        addClass(li, className);
+      });
     });
   });
 
-  const onDetail = (index) => {
-    console.log(script.getAttribute('data-helper'));
+  const onDetail = (index, after) => {
     const detail = data[index];
     if (detail) {
       detail.des = [
         {
           label: 'Duration',
-          value: `${helper.formatDate(detail.duration[0], 'MMM YYYY', 'MM/YYYY')} - ${helper.formatDate(detail.duration[1], 'MMM YYYY', 'MM/YYYY')}`,
+          value: `${dayjs(detail.duration[0], 'MM/YYYY').format('MMM YYYY')} - ${dayjs(detail.duration[1], 'MM/YYYY').format('MMM YYYY')}`,
         },
         {
           label: 'Techlogy',
@@ -89,7 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
             `;
 
-      detailContainer.append(inner);
+      detailContainer.innerHTML = inner;
+
+      after();
     }
   };
 });

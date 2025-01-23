@@ -23,7 +23,7 @@ export const PROJECT_DATA = [
       'This is a parking management website. It uses AI to detect license plate numbers. It monitors parking status in real time and allows drivers to prepay parking fees with online payment. Web deployed to virtual machine',
   },
   {
-    title: 'Parking management',
+    title: 'Parking management1',
     subtitle: 'Graduation project',
     logo: '/img/project/logo_pm.svg',
     duration: ['09/2024', '07/2024'],
@@ -46,7 +46,7 @@ export const PROJECT_DATA = [
       'This is a parking management website. It uses AI to detect license plate numbers. It monitors parking status in real time and allows drivers to prepay parking fees with online payment. Web deployed to virtual machine',
   },
   {
-    title: 'Parking management',
+    title: 'Parking management2',
     subtitle: 'Graduation project',
     logo: '/img/project/logo_pm.svg',
     duration: ['09/2024', '07/2024'],
@@ -69,7 +69,7 @@ export const PROJECT_DATA = [
       'This is a parking management website. It uses AI to detect license plate numbers. It monitors parking status in real time and allows drivers to prepay parking fees with online payment. Web deployed to virtual machine',
   },
   {
-    title: 'Parking management',
+    title: 'Parking management3',
     subtitle: 'Graduation project',
     logo: '/img/project/logo_pm.svg',
     duration: ['09/2024', '07/2024'],
