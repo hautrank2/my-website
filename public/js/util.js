@@ -21,3 +21,9 @@ export const removeClass = (element, classToRemove) => {
     if (cls) element.classList.remove(cls);
   });
 };
+
+export const clearContent = (container) => {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+};

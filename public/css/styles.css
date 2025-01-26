@@ -1,3 +1,58 @@
+:root {
+  --color-primary: 41, 121, 169; /* Converted #2979a9 to RGB */
+  --color-clifford: 218, 55, 61; /* Converted #da373d to RGB */
+  --color-foreground: 0, 0, 0; /* Converted #000 */
+  --color-foreground-subtitle: 74, 85, 104; /* Converted #4a5568 to RGB */
+  --color-background: 255, 255, 255; /* Converted #fff */
+  --color-neutral-50: 255, 255, 255; /* Converted #ffffff */
+  --color-neutral-100: 249, 250, 251; /* Converted #f9fafb to RGB */
+  --color-neutral-200: 243, 244, 246; /* Converted #f3f4f6 to RGB */
+  --color-neutral-300: 229, 231, 235; /* Converted #e5e7eb to RGB */
+  --color-neutral-400: 209, 213, 219; /* Converted #d1d5db to RGB */
+  --color-neutral-500: 156, 163, 175; /* Converted #9ca3af to RGB */
+  --color-neutral-600: 107, 114, 128; /* Converted #6b7280 to RGB */
+  --color-neutral-700: 75, 85, 99; /* Converted #4b5563 to RGB */
+  --color-neutral-800: 55, 65, 81; /* Converted #374151 to RGB */
+  --color-neutral-900: 31, 41, 55; /* Converted #1f2937 to RGB */
+  --color-neutral-950: 17, 24, 39; /* Converted #111827 to RGB */
+  --color-danger: 239, 68, 68; /* Converted #ef4444 to RGB */
+}
+
+:root {
+  --color-primary: 41, 121, 169; /* Converted #2979a9 to RGB */
+  --color-clifford: 218, 55, 61; /* Converted #da373d to RGB */
+  --color-foreground: 0, 0, 0; /* Converted #000 */
+  --color-foreground-subtitle: 74, 85, 104; /* Converted #4a5568 to RGB */
+  --color-background: 255, 255, 255; /* Converted #fff */
+  --color-neutral-50: 255, 255, 255; /* Converted #ffffff */
+  --color-neutral-100: 249, 250, 251; /* Converted #f9fafb to RGB */
+  --color-neutral-200: 243, 244, 246; /* Converted #f3f4f6 to RGB */
+  --color-neutral-300: 229, 231, 235; /* Converted #e5e7eb to RGB */
+  --color-neutral-400: 209, 213, 219; /* Converted #d1d5db to RGB */
+  --color-neutral-500: 156, 163, 175; /* Converted #9ca3af to RGB */
+  --color-neutral-600: 107, 114, 128; /* Converted #6b7280 to RGB */
+  --color-neutral-700: 75, 85, 99; /* Converted #4b5563 to RGB */
+  --color-neutral-800: 55, 65, 81; /* Converted #374151 to RGB */
+  --color-neutral-900: 31, 41, 55; /* Converted #1f2937 to RGB */
+  --color-neutral-950: 17, 24, 39; /* Converted #111827 to RGB */
+  --color-danger: 239, 68, 68; /* Converted #ef4444 to RGB */
+}
+
+.loading-container .loading-element.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 #quill-container,
 .blog-content.ql-container {
   border-color: transparent;
@@ -157,6 +212,26 @@ table img {
   white-space: normal;
 }
 
+:root {
+  --color-primary: 41, 121, 169; /* Converted #2979a9 to RGB */
+  --color-clifford: 218, 55, 61; /* Converted #da373d to RGB */
+  --color-foreground: 0, 0, 0; /* Converted #000 */
+  --color-foreground-subtitle: 74, 85, 104; /* Converted #4a5568 to RGB */
+  --color-background: 255, 255, 255; /* Converted #fff */
+  --color-neutral-50: 255, 255, 255; /* Converted #ffffff */
+  --color-neutral-100: 249, 250, 251; /* Converted #f9fafb to RGB */
+  --color-neutral-200: 243, 244, 246; /* Converted #f3f4f6 to RGB */
+  --color-neutral-300: 229, 231, 235; /* Converted #e5e7eb to RGB */
+  --color-neutral-400: 209, 213, 219; /* Converted #d1d5db to RGB */
+  --color-neutral-500: 156, 163, 175; /* Converted #9ca3af to RGB */
+  --color-neutral-600: 107, 114, 128; /* Converted #6b7280 to RGB */
+  --color-neutral-700: 75, 85, 99; /* Converted #4b5563 to RGB */
+  --color-neutral-800: 55, 65, 81; /* Converted #374151 to RGB */
+  --color-neutral-900: 31, 41, 55; /* Converted #1f2937 to RGB */
+  --color-neutral-950: 17, 24, 39; /* Converted #111827 to RGB */
+  --color-danger: 239, 68, 68; /* Converted #ef4444 to RGB */
+}
+
 body, .ql-snow .ql-editor {
   /* Headings */
   /* Paragraph */
@@ -198,6 +273,26 @@ body blockquote, .ql-snow .ql-editor blockquote {
   color: #374151; /* Dark Gray */
   padding-left: 1rem; /* Spacing for the border */
   margin: 1.5rem 0; /* Vertical spacing */
+}
+
+:root {
+  --color-primary: 41, 121, 169; /* Converted #2979a9 to RGB */
+  --color-clifford: 218, 55, 61; /* Converted #da373d to RGB */
+  --color-foreground: 0, 0, 0; /* Converted #000 */
+  --color-foreground-subtitle: 74, 85, 104; /* Converted #4a5568 to RGB */
+  --color-background: 255, 255, 255; /* Converted #fff */
+  --color-neutral-50: 255, 255, 255; /* Converted #ffffff */
+  --color-neutral-100: 249, 250, 251; /* Converted #f9fafb to RGB */
+  --color-neutral-200: 243, 244, 246; /* Converted #f3f4f6 to RGB */
+  --color-neutral-300: 229, 231, 235; /* Converted #e5e7eb to RGB */
+  --color-neutral-400: 209, 213, 219; /* Converted #d1d5db to RGB */
+  --color-neutral-500: 156, 163, 175; /* Converted #9ca3af to RGB */
+  --color-neutral-600: 107, 114, 128; /* Converted #6b7280 to RGB */
+  --color-neutral-700: 75, 85, 99; /* Converted #4b5563 to RGB */
+  --color-neutral-800: 55, 65, 81; /* Converted #374151 to RGB */
+  --color-neutral-900: 31, 41, 55; /* Converted #1f2937 to RGB */
+  --color-neutral-950: 17, 24, 39; /* Converted #111827 to RGB */
+  --color-danger: 239, 68, 68; /* Converted #ef4444 to RGB */
 }
 
 @keyframes openModal {

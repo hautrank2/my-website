@@ -9,7 +9,7 @@ const commonProp = {};
 projectController.viewProject = (req, res) => {
   const detailData = PROJECT_DATA[0];
   res.render('project', {
-    page: 'project',
+    page: '/project',
     navbars: NAV_BARS,
     data: PROJECT_DATA,
     detail: {

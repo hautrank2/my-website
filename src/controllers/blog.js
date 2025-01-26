@@ -46,13 +46,13 @@ blogController.viewHome = (req, res) => {
     },
   ];
 
-  res.render('home', { page: 'home', navbars: NAV_BARS, stacks, sections });
+  res.render('home', { page: '/', navbars: NAV_BARS, stacks, sections });
 };
 
 blogController.viewBlog = async (req, res) => {
   try {
     const blogs = await Blog.find({ active: true }).lean();
-    res.render('blog/index', { page: 'blog', navbars: NAV_BARS, blogs });
+    res.render('blog/index', { page: '/blog', navbars: NAV_BARS, blogs });
   } catch (error) {
     console.log(error);
   }
@@ -70,7 +70,7 @@ blogController.viewBlogContent = async (req, res) => {
     const blogCtnId = blog.blogContent;
     const blogContent = await BlogContent.findById(blogCtnId).lean();
     res.render('blog/view', {
-      page: 'blog',
+      page: '/blog',
       navbars: NAV_BARS,
       content: JSON.stringify(blogContent.content),
       blog,
@@ -90,7 +90,7 @@ blogController.viewBlogForm = async (req, res, next) => {
       values = blog;
     }
     res.render('blog/form', {
-      page: 'admin/blog',
+      page: '/admin/blog',
       navbars: NAV_BARS,
       formError: req.validationErrors || {},
       values,
@@ -183,7 +183,7 @@ blogController.viewBlogManagement = async (req, res, next) => {
   try {
     const data = await Blog.find().lean();
     res.render('blog/management', {
-      page: 'admin/blog',
+      page: '/admin/blog',
       navbars: NAV_BARS,
       columns: BLOG_TABLE,
       data,

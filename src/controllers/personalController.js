@@ -53,7 +53,7 @@ personalController.viewabout = (req, res, next) => {
       label: 'hautrank2',
     },
   ];
-  res.render('about', { page: 'about', navbars: NAV_BARS, contactInfors });
+  res.render('about', { page: '/about', navbars: NAV_BARS, contactInfors });
 };
 
 export default personalController;

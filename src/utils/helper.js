@@ -27,4 +27,10 @@ export default {
   navigate: (path, text) => {
     return `<a href="${path}">${text}</a>`;
   },
+  activePage: (page, path) => {
+    if (path === '/') {
+      return path === page;
+    }
+    return page.replace('/', '').startsWith(path.replace('/', ''));
+  },
 };
